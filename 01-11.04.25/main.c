@@ -1,7 +1,13 @@
 //
-// Nick Hildebrandt: Technische Informatik – Embedded Systems (B.Eng.)
+// Dipl.Phys. Gerald Kempfer
+// Berliner Hochschule für Technik
+// University of Applied Sciences
+// Fachbereich VI – Informatik und Medien
+// Studiengang Technische Informatik Bachelor
+//
+// Nick Hildebrandt
 // Matrikelnummer: 109071
-// Grundlagen der Informatik: Abgabe 11.04.25
+// Abgabe: 11.04.25
 //
 // Aufgabe:
 // Ziel der Übung ist es, grundlegende Arbeitsmittel wie Linux-Terminal,

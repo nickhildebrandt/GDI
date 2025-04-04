@@ -16,7 +16,7 @@ SRC := $(wildcard *.c)
 OBJ := $(patsubst %.c,build/%.o,$(SRC))
 TARGET := build/main
 
-.PHONY: all clean
+.PHONY: all clean run debug
 
 all: $(TARGET)
 
@@ -33,3 +33,9 @@ build/%.o: %.c
 # Clean up build artifacts
 clean:
 	rm -rf build
+
+run:
+	./build/main
+
+debug:
+	ASAN_OPTIONS=detect_leaks=0 gdb ./build/main
