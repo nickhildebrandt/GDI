@@ -28,8 +28,5 @@ int main() {
   Brutto = Mehrwert + Netto;
   printf("Bruttobetrag  : %.2f\n", Brutto);
 
-  int *a = (int *)malloc(64);
-
-  *a = 99;
   return 0;
 }
