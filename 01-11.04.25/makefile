@@ -34,8 +34,8 @@ build/%.o: %.c
 clean:
 	rm -rf build
 
-run:
+run: all
 	./build/main
 
-debug:
+debug: all
 	ASAN_OPTIONS=detect_leaks=0 gdb ./build/main
