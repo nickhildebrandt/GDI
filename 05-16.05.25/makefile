@@ -9,33 +9,34 @@ CFLAGS := -std=c2x \
 	  -Wdouble-promotion \
 	  -Wformat=2 \
 	  -g -O0 \
-	  -fsanitize=address,undefined
+	  -fsanitize=address,undefined \
+	  -MMD -MP
 LDFLAGS := -fsanitize=address,undefined
 
-SRC := $(wildcard *.c)
-OBJ := $(patsubst %.c,build/%.o,$(SRC))
-TARGET := build/main
+PROGRAMM := main
+BUILD_DIR := build
+TARGET := $(BUILD_DIR)/$(PROGRAMM)
 
-.PHONY: all clean run debug
+SRC = $(wildcard *.c)
+OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(SRC))
+DEP = $(OBJ:.o=.d)
 
-all: $(TARGET)
+.PHONY: all clean run
 
-# Link step
+all: clean $(TARGET) run
+
 $(TARGET): $(OBJ)
-	@mkdir -p build
+	@mkdir -p $(BUILD_DIR)
 	$(CC) $(OBJ) -o $@ $(LDFLAGS)
 
-# Compile each .c file to build/*.o
-build/%.o: %.c
-	@mkdir -p build
+$(BUILD_DIR)/%.o: %.c
+	@mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Clean up build artifacts
+-include $(DEP)
+
 clean:
-	rm -rf build
+	@rm -rf $(BUILD_DIR)
 
-run: all
-	./build/main
-
-debug: all
-	ASAN_OPTIONS=detect_leaks=0 gdb ./build/main
+run: $(TARGET)
+	./$(TARGET)

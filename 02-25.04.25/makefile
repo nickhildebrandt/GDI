@@ -37,39 +37,39 @@ Anziehsachen := Mantel \
 
 Mantel: Schuhe Handy Pullover
 	@echo $@ anziehen
-	touch $@
+	@touch $@
 
 Schuhe: Struempfe Hose
 	@echo $@ anziehen
-	touch $@
+	@touch $@
 
 Handy: Hose
 	@echo $@ anziehen
-	touch $@
+	@touch $@
 
 Pullover: Hemd
 	@echo $@ anziehen
-	touch $@
+	@touch $@
 
 Hose: Hemd Unterhose
 	@echo $@ anziehen
-	touch $@
+	@touch $@
 
 Hemd: Unterhemd
 	@echo $@ anziehen
-	touch $@
+	@touch $@
 
 Struempfe:
 	@echo $@ anziehen
-	touch $@
+	@touch $@
 
 Unterhose:
 	@echo $@ anziehen
-	touch $@
+	@touch $@
 
 Unterhemd:
 	@echo $@ anziehen
-	touch $@
+	@touch $@
 
 Nackt:
 	rm -f $(Anziehsachen)
