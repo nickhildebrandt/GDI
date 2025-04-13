@@ -33,7 +33,7 @@ Anziehsachen := Mantel \
 		Unterhose \
 		Unterhemd
 
-.PHONY: Nackt
+.PHONY: Nackt clean Mantel
 
 Mantel: Schuhe Handy Pullover
 	@echo $@ anziehen
@@ -73,3 +73,5 @@ Unterhemd:
 
 Nackt:
 	rm -f $(Anziehsachen)
+
+clean: Nackt

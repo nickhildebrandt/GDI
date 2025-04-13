@@ -22,7 +22,9 @@ SRC = $(wildcard *.c)
 OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(SRC))
 DEP = $(OBJ:.o=.d)
 
-.PHONY: all clean run
+.PHONY: clean build all run
+
+build: clean $(TARGET)
 
 all: clean $(TARGET) run
 
