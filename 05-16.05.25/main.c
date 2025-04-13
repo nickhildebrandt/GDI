@@ -38,13 +38,6 @@ int main() {
   // Endlosschleife, die nur durch 'exit(0)' verlassen wird
   while (1) {
 
-    // Eingabe des Namens (maximal 89 Zeichen + Nullterminator)
-    char name[90];
-    scanf("%s", name);
-
-    // Den eingegebenen Namen ausgeben
-    printf("Name: %s\n", name);
-
     // Aufforderung zur Eingabe einer Ganzzahl
     printf("Geben Sie bitte eine ganze Zahl ein: ");
 
