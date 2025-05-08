@@ -22,14 +22,27 @@ void clearBuffer() {
 }
 
 int askAgain(int Row, int Col) {
+    // Bildschirmausgabe an der Position Row/Col
+    POSITION(Row, Col);
+
+    // Ausgelesener Buchstabe
     char continue_loop;
 
+    // Eingabeaufforderung wiederholen bis eine gültige Eingabe erfolgt
+    // entweder 'j' oder 'n'
     do {
-        printf("Eingabe an Position [%d][%d] wiederholen? (j/n): ", Row, Col);
+        // Bildschirmausgabe an der Position Row/Col zur Eingabeaufforderung
+        printf("Möchten Sie noch einmal? (j/n): ");
+
+        // Einlesen eines Buchstabens aus der Standardeingabe
         scanf(" %c", &continue_loop);
+
+        // Eingabepuffer leeren
         clearBuffer();
     } while (continue_loop != 'j' && continue_loop != 'n');
 
+    // Rückgabe des Ermittelten Wahrwheitswertes ob der Bernutzer fortfahren
+    // möchte (wenn die eingabe 'j' war)
     return continue_loop == 'j';
 }
 

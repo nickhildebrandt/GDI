@@ -19,8 +19,8 @@
 #include "escapesequenzen.h"
 #include "tools.h"
 
-int const MaxRows = 9;
-int const MaxColumns = 9;
+int const MaxRows = 16;
+int const MaxColumns = 16;
 
 int getNumberOfRows(int Row, int Col, int MatrixNo) {
     // Prompt für die Anzahl der Zeilen der Matrix
@@ -80,9 +80,6 @@ int getNumberOfColumns(int Row, int Col, int MatrixNo) {
     return col_count;
 }
 
-// An eine Position Row/Col in der matrix eine Zahl schreiben
-static void print_matrix_pos();
-
 // Leere Matrix für Row/ColCount auf dem Bildschirm ausgeben
 static void print_empty_matrix(int rows, int columns,
                                int Row, int Col) {
@@ -137,13 +134,88 @@ void getMatrix(int Row, int Col, int RowCount, int ColCount,
     }
 }
 
+// Zwei Matrixen multiplizieren und das Ergebnis im Parameter MErg speichern
 void calcMatrix(int RowCount1, int ColCount1, int ColCount2,
                 int M1[MaxRows][MaxColumns], int M2[MaxRows][MaxColumns],
                 int MErg[MaxRows][MaxColumns]) {
-    return;
+    // Schleife für die Zeilen der ersten Matrix
+    for (int i = 0; i < RowCount1; i++) {
+        // Schleife für die Spalten der zweiten Matrix
+        for (int j = 0; j < ColCount2; j++) {
+
+            // Ergebnis der Multiplikation auf 0 setzen
+            // falls die Matrixen nicht multipliziert werden können
+            // und ein incompatibles Größenverhältnis vorliegt bzw.
+            // Eine Matrix leer ist
+            MErg[i][j] = 0;
+
+            // Zeile matrix 1 und Spalte Matrix 2 multiplizieren
+            for (int k = 0; k < ColCount1; k++) {
+                // Addieren der Multiplikationsergebnisse bis zum Zeilenende
+                MErg[i][j] += M1[i][k] * M2[k][j];
+            }
+        }
+    }
+}
+
+// Hilfsfunktion für printMatrix um die Länge ausgabe von Ergebnissen von bis
+// zu 9 stellen zu ermöglichen
+static void printMatrixResult(int Row, int Col, int RowCount, int ColCount,
+                    int Matrix[MaxRows][MaxColumns]) {
+    // Schleife für die Zeilen der Matrix ausgabe
+    for (int i = 0; i < RowCount; i++) {
+
+        // Position der Zeilenausgabe gemäß der Parameter Row/Col setzen
+        POSITION(Row + i, Col);
+
+        // Rahmen links
+        printf("|");
+
+        // Schleife für die Spalten
+        for (int j = 0; j < ColCount; j++) {
+            // Formatierte Ausgabe der Matrixwerte mit 9 stellen da das
+            // Ergebnis bei eingabewerten von -999 bis 9999 zwischen
+            // -99,980,001 und 99,980,001 liegt
+            printf(" %9i", Matrix[i][j]);
+        }
+
+        printf(" |");
+    }
 }
 
 void printMatrix(int Row, int Col, int RowCount, int ColCount,
                  int Matrix[MaxRows][MaxColumns]) {
-    return;
+
+    // Überprüfen ob ein parameter länger als 4 Zeichen ist
+    // d.h. ob er größer als 9999 oder kleiner als -999 ist
+    for (int i = 0; i < RowCount; i++) {
+        for (int j = 0; j < ColCount; j++) {
+            if (Matrix[i][j] > 9999 || Matrix[i][j] < -999) {
+                // Falls ja, wird die Hilfsfunktion für die Ausgabe
+                // der Matrixergebnisse aufgerufen
+                printMatrixResult(Row, Col, RowCount, ColCount, Matrix);
+                return;
+            }
+        }
+    }
+
+    // Schleife für die Zeilen der Matrix ausgabe
+    for (int i = 0; i < RowCount; i++) {
+
+        // Position der Zeilenausgabe gemäß der Parameter Row/Col setzen
+        POSITION(Row + i, Col);
+
+        // Rahmen links
+        printf("|");
+
+        // Schleife für die Spalten
+        for (int j = 0; j < ColCount; j++) {
+
+            // Bildschgirmausgabe der Matrixwerte mit 4 stellen
+            printf(" %4i", Matrix[i][j]);
+        }
+
+        // Rahmen rechts
+        printf(" |");
+    }
 }
