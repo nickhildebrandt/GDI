@@ -9,17 +9,6 @@
 // Matrikelnummer: 109071
 // Abgabe: 16.05.25
 //
-// Aufgabe:
-// Ziel dieser Übung ist es, die Anwendung von if - Abfragen und Schleifen zu
-// vertiefen, indem ein benutzerfreundliches C - Programm erstellt wird, das
-// eine ganze Zahl vom Nutzer einliest, sie wieder ausgibt und anschließend
-// abfragt, ob eine weitere Eingabe erfolgen soll.Dabei steht neben der reinen
-// Funktionalität auch die Eingabesicherung im Vordergrund : Das Ergebnis von
-// scanf muss ausgewertet werden, um ungültige Eingaben(z. B.Buchstaben)
-// abzufangen, und der Tastaturpuffer ist nach jeder Eingabe vollständig zu
-// leeren, um Folgefehler zu vermeiden.Das Programm soll klare Anweisungen und
-// Fehlermeldungen ausgeben und wird über eine Make - Datei kompiliert, gelinkt
-// und gestartet.
 
 #include <stdio.h>
 #include <stdlib.h>

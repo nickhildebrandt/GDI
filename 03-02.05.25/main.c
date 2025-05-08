@@ -9,20 +9,6 @@
 // Matrikelnummer: 109071
 // Abgabe: 02.05.25
 //
-// Aufgabe:
-// In dieser Übung sollen Sie erstmals eigenständig ein C-Programm erstellen,
-// das den Umgang mit Variablen trainiert. Das Programm berechnet für drei
-// vorgegebene Widerstandswerte (als double initialisiert) jeweils den
-// Gesamtwiderstand bei Reihen- und Parallelschaltung sowie den unbekannten
-// Widerstand in einer Wheatstoneschen Messbrücke. Die Ergebnisse sollen
-// formatiert mit %f und Zeilenumbrüchen per \n auf dem Bildschirm ausgegeben
-// werden. Die Initialisierungswerte werden im Quelltext angepasst; die
-// Ergebnisvariablen sind mit 0.0 zu initialisieren. Zusätzlich wird erwartet,
-// dass das Programm über eine Make-Datei kompiliert, gelinkt und gestartet
-// wird. Eine saubere Strukturierung mit Kommentaren zu Variablen und einzelnen
-// Programmabschnitten ist erforderlich. Abschließend soll das Programm mit
-// verschiedenen Werten getestet und die Ergebnisse per Taschenrechner
-// überprüft werden.
 
 #include <stdio.h>
 #include <stdlib.h>

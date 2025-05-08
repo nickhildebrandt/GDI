@@ -9,13 +9,6 @@
 // Matrikelnummer: 109071
 // Abgabe: 23.05.25
 //
-// Aufgabe:
-// Ziel dieser Übung ist es, die Anwendung von if- und switch-Anweisungen sowie
-// Schleifen zu üben und ein Nassi-Shneiderman-Diagramm in C umzusetzen, indem
-// ein menügesteuerter Taschenrechner mit den vier Grundrechenarten
-// programmiert wird, der über ein wiederholt angezeigtes Auswahlmenü bedient
-// wird, Eingaben prüft, Rechenergebnisse anzeigt und gemäß einer Make-Datei
-// kompiliert, gelinkt und gestartet werden kann.
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -9,19 +9,6 @@
 # Matrikelnummer: 109071
 # Abgabe: 25.04.25
 #
-# Aufgabe:
-# In dieser Übung geht es darum, den Umgang mit Make-Dateien zu erlernen. Nach
-# einer theoretischen Einführung (Kapitel 3 des Skripts „Compilieren und Linken
-# von C- und C++-Dateien“) und dem Anschauen zweier Übungsvideos sollen Sie
-# selbst zwei Make-Dateien erstellen und testen. Eine davon soll das
-# schrittweise Ankleiden modellieren, wobei bestimmte Kleidungsstücke nur nach
-# vorherigem Anziehen anderer Teile „angezogen“ werden dürfen – dargestellt
-# durch Abhängigkeiten. Jeder Schritt gibt mit @echo aus, was gerade angezogen
-# wird, und aktualisiert mit @touch $@ die zugehörige Datei. Zusätzlich soll
-# das Target Nackt alle erstellten Dateien wieder löschen. Das Ziel ist, bei
-# make die korrekte Ankleidereihenfolge gemäß den Abhängigkeiten abzubilden und
-# auch Einzelschritte wie make Hose zu ermöglichen. Groß-/Kleinschreibung der
-# Dateinamen muss beachtet werden.
 
 Anziehsachen := Mantel \
 		Schuhe \

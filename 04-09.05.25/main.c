@@ -9,20 +9,6 @@
 // Matrikelnummer: 109071
 // Abgabe: 09.05.25
 //
-// Aufgabe:
-// In dieser Übungsaufgabe soll ein C-Programm erstellt werden, das
-// quadratische Gleichungen zweiten Grades in der Form x² + px + q = 0 löst.
-// Die Werte für p und q (Datentyp double) werden vom Benutzer eingegeben,
-// wobei vorerst keine Fehleingaben berücksichtigt werden müssen. Zur Lösung
-// wird die bekannte Formel verwendet, wobei zur Berechnung der Wurzel die
-// Funktion sqrt aus der Bibliothek math.h eingebunden werden muss. Beim Linken
-// ist zusätzlich der Parameter -lm anzugeben, um die mathematische Bibliothek
-// zu nutzen. Das Programm soll eine formatiert umrahmte und optisch
-// ansprechende Ausgabe erzeugen, wie im Aufgabenbeispiel gezeigt. Die Ausgabe
-// der Werte von p, q, x₁ und x₂ erfolgt mit einer Gesamtbreite von 8 Zeichen
-// und 2 Nachkommastellen, wobei bestimmte Werte wie der Wurzelausdruck und die
-// Lösungen linksbündig dargestellt werden. Die Kompilierung, das Linken und
-// der Programmstart erfolgen über eine Make-Datei.
 
 #include <math.h>
 #include <stdarg.h>

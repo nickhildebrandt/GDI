@@ -9,12 +9,6 @@
 // Matrikelnummer: 109071
 // Abgabe: 11.04.25
 //
-// Aufgabe:
-// Ziel der Übung ist es, grundlegende Arbeitsmittel wie Linux-Terminal,
-// vi-Editor und gcc-Compiler kennenzulernen, ein erstes C-Programm gemeinsam
-// zu erstellen und zu kompilieren sowie anschließend eigenständig Fehler im
-// Programm ueb01.c zu analysieren, zu korrigieren und die Funktionsweise des
-// Compilers durch eigene Experimente besser zu verstehen.
 
 #include <stdio.h>
 #include <stdlib.h>
