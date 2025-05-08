@@ -11,59 +11,64 @@
 //
 
 #include <stdio.h>
-#include <stdlib.h>
+
+// Funktion zum Leeren des Eingabepuffers
+void clear_input_buffer(void) {
+    int c;
+    // Liest Zeichen, bis ein Zeilenumbruch oder das Dateiende erreicht ist
+    while ((c = getchar()) != '\n' && c != EOF);
+}
 
 int main() {
 
-  // Ganzzahl Benutzereingabe
-  int eingabe = 0;
+    // Speichert, ob der Benutzer weitermachen möchte (j/n)
+    char continue_input;
 
-  // Buchstabe aus der Benutzereingabe, welcher wenn 'y' das Programm fortsetzt
-  char weiter;
+    // Speichert, ob die Eingabe erfolgreich war
+    int input_valid;
 
-  // Variable zum Leeren des Eingabepuffers
-  int c;
+    // Speichert den vom Benutzer eingegebenen Zahlenwert
+    double input_value;
 
-  // Endlosschleife, die nur durch 'exit(0)' verlassen wird
-  while (1) {
+    // Hauptschleife: Wiederholt die Eingabe, solange der Benutzer 'j' eingibt
+    do {
+        // Benutzer zur Eingabe auffordern
+        printf("Geben Sie bitte eine ganze Zahl ein: ");
 
-    // Aufforderung zur Eingabe einer Ganzzahl
-    printf("Geben Sie bitte eine ganze Zahl ein: ");
+        // Versucht, eine Gleitkommazahl einzulesen
+        input_valid = scanf(" %lf", &input_value);
 
-    // Überprüfen, ob eine gültige Ganzzahl eingelesen wurde
-    if (!scanf(" %d", &eingabe)) {
+        // Leert den Eingabepuffer um nicht eingelesene Zeichen
+        clear_input_buffer();
 
-      // Eingabepuffer leeren, damit fehlerhafte Eingaben keine Folgefehler
-      // verursachen
-      while ((c = getchar()) != '\n' && c != EOF) {
-      }
+        // Wenn die Eingabe gültig war
+        if (input_valid) {
+            // Gibt den eingegebenen Wert aus
+            printf("Sie haben %lf eingegeben\n", input_value);
+        }
+        else {
+            // Fehlermeldung bei ungültiger Eingabe
+            printf("Falsche Eingabe! Die Eingabe ist keine ganze Zahl!\n");
+        }
 
-      // Fehlermeldung ausgeben (auf stderr)
-      fprintf(stderr, "Fehlerhafte Eingabe\n");
-      continue; // Schleife von vorn beginnen
-    }
+        // Schleife zur Abfrage, ob der Benutzer weitermachen möchte
+        do {
+            printf("Möchten Sie noch einmal? (j/n) ");
 
-    // Die erfolgreich eingelesene Ganzzahl ausgeben
-    printf("Die Eingabe war %d\n", eingabe);
+            // Liest ein einzelnes Zeichen für die Entscheidung ein
+            scanf(" %c", &continue_input);
 
-    // Benutzer fragen, ob er eine weitere Eingabe tätigen möchte
-    printf("Wollen Sie nochmal eingeben? (y/n): ");
+            // Eingabepuffer um nicht eingelesene Zeichen leeren
+            clear_input_buffer();
 
-    // Die Eingabe für 'weiter' einlesen.
-    // Das Leerzeichen vor %c ignoriert führende Whitespaces (z. B. \n vom
-    // vorherigen scanf)
-    if (!scanf(" %c", &weiter)) {
-      fprintf(stderr, "Fehlerhafte Eingabe\n");
-      continue; // Schleife von vorn beginnen
-    }
+            // Wiederholung der Eingabeaufforderung, bis die Eingabe gültig ist
+        } while (continue_input != 'j' && continue_input != 'n');
 
-    // Wenn der Benutzer nicht 'y' eingegeben hat, Programm beenden
-    if (weiter != 'y') {
-      exit(0);
-    }
-  }
+        // Wiederholle wenn der benutzer in der vorherigen Eingabe  Schleife
+        // 'j' eingegeben hat
+    } while (continue_input == 'j');
 
-  // Rückgabewert der main-Funktion (wird nie erreicht, da exit() vorher
-  // aufgerufen wird)
-  return 0;
+    // Programm beenden
+    return 0;
 }
+
