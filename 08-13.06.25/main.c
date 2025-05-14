@@ -31,18 +31,19 @@ void clear_stdin(void) {
 // falls ja => true ansonsten => false
 int check_continue() {
   // Buchstabe 'j' oder 'n' aus der Benutzeingabe
-  char continue_loop;
+  char continue_input;
 
   // Eingabeaufforderung bis eine gültige Eingabe ('j' oder 'n') erfolgt
   do {
     printf("Möchten Sie noch einmal (j/n)? ");
-    scanf(" %c", &continue_loop);
+    scanf(" %c", &continue_input);
     clear_stdin();
-  } while (continue_loop != 'j' && continue_loop != 'n');
+  } while (continue_input != 'j' && continue_input != 'n' &&
+           continue_input != 'J' && continue_input != 'N');
 
   // Wenn der Benutzer 'j' eingibt, wird das Programm fortgesetzt
   // => Warheitswert true
-  return continue_loop == 'j';
+  return continue_input == 'j' || continue_input == 'J';
 }
 
 // Konvertiert eine 16-Bit-Zahl in eine Binärdarstellung
