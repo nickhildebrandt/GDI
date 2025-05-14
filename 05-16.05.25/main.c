@@ -62,11 +62,12 @@ int main() {
       clear_input_buffer();
 
       // Wiederholung der Eingabeaufforderung, bis die Eingabe gültig ist
-    } while (continue_input != 'j' && continue_input != 'n');
+    } while (continue_input != 'j' && continue_input != 'n' &&
+             continue_input != 'J' && continue_input != 'N');
 
     // Wiederholle wenn der benutzer in der vorherigen Eingabe  Schleife
     // 'j' eingegeben hat
-  } while (continue_input == 'j');
+  } while (continue_input == 'j' || continue_input == 'J');
 
   // Programm beenden
   return 0;
