@@ -63,8 +63,7 @@ void print_table(int *count_array) {
 
       // Sollte es sich um ein ASCI Steuerzeichen wie TAB etc. handeln ersetzen
       // wir dieses mit SPACE damit die Tabelle Richtig ausgeben wird
-      printf(" %c (%#x): %2i |", (i < 32) ? 32 : i, (i < 32) ? 32 : i,
-             count_array[i]);
+      printf(" %c (%#04x): %2i |", (i < 32) ? 32 : i, i, count_array[i]);
 
       // Für jede ausgegebene Zelle den Zähler um 1 erhöhen
       cell_counter++;
