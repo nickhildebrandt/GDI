@@ -35,20 +35,19 @@ int main() {
 
   // Bildschirmausgabe der Wiederstandswerte (2 Nachkommastellen)
   printf("Gegeben:\n\tR1:\t%.2f\tOhm\n\tR2:\t%.2f\tOhm\n\tR3:\t%.2f\tOhm\n\n",
-          R1, R2, R3);
+         R1, R2, R3);
 
   // Bildschirmausgabe und Berechnung Reihenschaltung (2 Nachkommastellen)
   r_sum_series = R1 + R2 + R3;
   printf("Gesamtwiderstand Reihenschaltung:\t%.2f\tOhm\n", r_sum_series);
 
   // Bildschirmausgabe und Berechnung Parallelschaltung (2 Nachkommastellen)
-  r_sum_parallel = 1 / (1/R1 + 1/R2 + 1/R3);
+  r_sum_parallel = 1 / (1 / R1 + 1 / R2 + 1 / R3);
   printf("Gesamtwiderstand Parallelschaltung:\t%.2f\tOhm\n", r_sum_parallel);
 
   // Bildschirmausgabe und Berechnung Messbrücke (2 Nachkommastellen)
   r_missing = R3 * R2 / R1;
-  printf("Gesuchter Widerstand Messbrücke:\t%.2f\tOhm\n",
-         r_missing);
+  printf("Gesuchter Widerstand Messbrücke:\t%.2f\tOhm\n", r_missing);
 
   return 0;
 }

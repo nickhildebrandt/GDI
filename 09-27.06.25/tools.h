@@ -17,9 +17,8 @@ void clearBuffer();
 
 int askAgain(int Row, int Col);
 
-void read_operant(int *operand, const char *prompt,
-                  int min, int max,
-                  int row, int col);
+void read_operant(int *operand, const char *prompt, int min, int max, int row,
+                  int col);
 
 char *str_printf(const char *fmt, ...);
 
