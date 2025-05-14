@@ -27,7 +27,7 @@ int askAgain(int Row, int Col) {
   POSITION(Row, Col);
 
   // Ausgelesener Buchstabe
-  char continue_loop;
+  char continue_input;
 
   // Eingabeaufforderung wiederholen bis eine gültige Eingabe erfolgt
   // entweder 'j' oder 'n'
@@ -36,15 +36,16 @@ int askAgain(int Row, int Col) {
     printf("Möchten Sie noch einmal? (j/n): ");
 
     // Einlesen eines Buchstabens aus der Standardeingabe
-    scanf(" %c", &continue_loop);
+    scanf(" %c", &continue_input);
 
     // Eingabepuffer leeren
     clearBuffer();
-  } while (continue_loop != 'j' && continue_loop != 'n');
+  } while (continue_input != 'j' && continue_input != 'n' &&
+           continue_input != 'J' && continue_input != 'N');
 
   // Rückgabe des Ermittelten Wahrwheitswertes ob der Bernutzer fortfahren
   // möchte (wenn die eingabe 'j' war)
-  return continue_loop == 'j';
+  return continue_input == 'j' || continue_input == 'J';
 }
 
 // Einene Operanden als int mit der Eingabeaufforderung 'prompt' einlesen
